@@ -1,0 +1,30 @@
+{
+  "name": "genius-api",
+  "version": "1.0.0",
+  "description": "\"Part of the Genius flashcards that deals with database\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zorand1986/genius-api.git"
+  },
+  "keywords": [
+    "api",
+    "genius",
+    "flashcards",
+    "node",
+    "express",
+    "mongodb",
+    "mongo",
+    "mongoose",
+    "graphql"
+  ],
+  "author": "Zoran Damjanac",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zorand1986/genius-api/issues"
+  },
+  "homepage": "https://github.com/zorand1986/genius-api#readme"
+}
