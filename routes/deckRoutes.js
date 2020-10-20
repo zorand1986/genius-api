@@ -9,7 +9,12 @@ const {
 
 const router = express.Router();
 
-router.route("/").get(getAllDecks).post(createDeck);
-router.route("/:id").get(getDeck).patch(updateDeck).delete(deleteDeck);
+router.route("/").get(getAllDecks);
+router
+  .route("/:id")
+  .get(getDeck)
+  .patch(updateDeck)
+  .delete(deleteDeck)
+  .post(createDeck);
 
 module.exports = router;
