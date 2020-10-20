@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "firstName": "John",
+    "lastName": "Johnson",
+    "userName": "john123",
+    "email": "john123@gmail.com",
+    "password": "123123"
+  },
+  {
+    "id": 2,
+    "firstName": "Mike",
+    "lastName": "Johnson",
+    "userName": "mike123",
+    "email": "mike123@gmail.com",
+    "password": "123123"
+  },
+  {
+    "id": 4,
+    "firstName": "John",
+    "lastName": "Johnson",
+    "userName": "john123",
+    "email": "john123@gmail.com",
+    "password": "123123"
+  },
+  {
+    "id": 5,
+    "firstName": "Jane",
+    "lastName": "Johnson",
+    "userName": "jane123",
+    "email": "jane123@gmail.com",
+    "password": "123123"
+  },
+  { "id": 51, "name": "Zoran", "password": "sdfasdf" },
+  { "id": 511, "name": "Zoran", "password": "sdfasdf" },
+  {
+    "id": 512,
+    "firstName": "Nikola",
+    "userName": "nikola123",
+    "password": "123123"
+  }
+]
