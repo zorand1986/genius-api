@@ -1,17 +1,19 @@
 const express = require("express");
 const {
   getAllUsers,
-  createUser,
   getUser,
   updateUser,
   deleteUser,
 } = require("./../controllers/userController");
 
 const { getDecksByOwner } = require("./../controllers/deckController");
+const { signup } = require("./../controllers/authController");
 
 const router = express.Router();
 
-router.route("/").get(getAllUsers).post(createUser);
+router.post("/signup", signup);
+
+router.route("/").get(getAllUsers);
 router.route("/:id").get(getUser).patch(updateUser).delete(deleteUser);
 router.route("/decks/:userId").get(getDecksByOwner);
 

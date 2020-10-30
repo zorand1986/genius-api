@@ -2,10 +2,10 @@ const express = require("express");
 const morgan = require("morgan");
 const app = express();
 
-const userRouter = require("./routes/userRoutes");
-const deckRouter = require("./routes/deckRoutes");
-const AppError = require("./utils/appError");
-const globalErrorHandler = require("./controllers/errorController");
+const userRouter = require("./src/routes/userRoutes");
+const deckRouter = require("./src/routes/deckRoutes");
+const AppError = require("./src/utils/appError");
+const globalErrorHandler = require("./src/controllers/errorController");
 
 //MIDDLEWARE
 if (process.env.NODE_ENV === "development") {

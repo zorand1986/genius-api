@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
-
-const validateEmail = (email) => {
-  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
-};
+const validator = require("validator");
+const bcrypt = require("bcryptjs");
 
 const userDecksSchema = new mongoose.Schema({
   id: {
@@ -21,8 +19,9 @@ const userSchema = new mongoose.Schema({
   email: {
     type: String,
     required: [true, "Email is required field!"],
-    validate: [validateEmail, "Please fill a valid email address"],
-    unique: [true, "User with that email already exists"],
+    validate: [validator.isEmail, "Please provide a valid email address."],
+    unique: [true, "User with that email already exists."],
+    lowercase: true,
   },
   userName: {
     type: String,
@@ -38,6 +37,14 @@ const userSchema = new mongoose.Schema({
     type: [userDecksSchema],
     required: false,
   },
+});
+
+userSchema.pre("save", async function (next) {
+  // Only run if password was modified
+  if (!this.isModified("password")) return next();
+
+  this.password = await bcrypt.hash(this.password, 12);
+  next();
 });
 
 const User = mongoose.model("User", userSchema);
