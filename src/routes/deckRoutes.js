@@ -5,7 +5,7 @@ const {
   getDeck,
   updateDeck,
   deleteDeck,
-} = require("./../controllers/deckController");
+} = require("../controllers/deckController");
 
 const router = express.Router();
 
