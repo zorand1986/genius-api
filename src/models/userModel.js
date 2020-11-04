@@ -2,6 +2,8 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
 
+const hashPassword = require("./../utils/authUtil");
+
 const userDecksSchema = new mongoose.Schema({
   id: {
     type: String,
@@ -32,6 +34,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, "Password is required!"],
     minlength: [6, "Password must be atleast 6 characters long."],
+    select: false,
   },
   decks: {
     type: [userDecksSchema],
@@ -43,9 +46,16 @@ userSchema.pre("save", async function (next) {
   // Only run if password was modified
   if (!this.isModified("password")) return next();
 
-  this.password = await bcrypt.hash(this.password, 12);
+  this.password = await hashPassword(this.password);
   next();
 });
+
+userSchema.methods.correctPassword = async function (
+  candidatePassword,
+  userPassword
+) {
+  return await bcrypt.compare(candidatePassword, userPassword);
+};
 
 const User = mongoose.model("User", userSchema);
 

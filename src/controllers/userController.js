@@ -22,17 +22,6 @@ exports.getUser = catchAsync(async (req, res) => {
   });
 });
 
-exports.createUser = catchAsync(async (req, res) => {
-  const newUser = await User.create(req.body);
-
-  res.status(201).json({
-    status: "success",
-    data: {
-      user: newUser,
-    },
-  });
-});
-
 exports.updateUser = catchAsync(async (req, res) => {
   const user = await User.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
