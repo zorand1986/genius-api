@@ -40,6 +40,14 @@ const userSchema = new mongoose.Schema({
     type: [userDecksSchema],
     required: false,
   },
+  passwordResetToken: {
+    type: String,
+    select: false,
+  },
+  passwordResetTokenExp: {
+    type: Number,
+    select: false,
+  },
 });
 
 userSchema.pre("save", async function (next) {
