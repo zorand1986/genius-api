@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const port = process.env.port || 3000;
+const port = process.env.PORT || 8000;
 
 process.on("uncaughtException", (err) => {
   console.log(err.name, err.message);
